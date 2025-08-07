@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}My Recipes Home{% endblock %}
+
+{% block content %}
+
+  <p>Hello, {{ username }}, from our html page!</p>
+
+
+<ul>
+  {% for book in books %}
+  <li>{{ book }}, added by: <a href="{% url 'books_by_user' user_id=book.created_by.id %}">{{ book.created_by }}</a></li>
+  {% endfor %}
+</ul>
+
+  <p>Today's time is: {{ current_time }}</p>
+
+{% endblock %}
